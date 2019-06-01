@@ -1,70 +1,29 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './scss/app';
+
+import Albums from './components/Albums';
+import Details from './components/Details';
 
 const App: React.SFC<IAppProps> = props => {
 
 
-    const [name, setName] = useState<string>('');
-    
-    const getName = async () => {
-        let r = await fetch('/api/hello');
-        let name = await r.json();
-        setName(name);
-    }
-    
-    useEffect(() => {
-        getName();
-    }, []);
-
-        return (
+    return (
+        // BrowserRouter should be the most parent level component in order to take
+        // advantage of the props it provides for the whole application.
+        <BrowserRouter>
             <main className="container">
-                <h1 className="covalence-blue">Hello {name}!</h1>
-                <h2></h2>
+                <Switch>
+                    <Route exact path="/" component={Albums} />
+                    <Route exact path="/:id/details" component={Details} />
+                </Switch>
             </main>
-        )
-    }
+        </BrowserRouter >
 
-    export default App
-
-interface IAppProps {
-
+    )
 }
 
+export default App
 
-// import * as React from 'react';
-
-// import './scss/app';
-
-// export default class App extends React.Component<IAppProps, IAppState> {
-
-//     constructor(props: IAppProps) {
-//         super(props);
-
-//         this.state = { name: null };
-//     }
-
-//     async componentWillMount() {
-//         let r = await fetch('/api/hello');
-//         let name = await r.json();
-//         this.setState({ name })
-//     }
-
-//     render () {
-//         return (
-//             <main className="container">
-//                 <h1 className="covalence-blue">Hello {this.state.name}!</h1>
-//                 <h2></h2>
-//             </main>
-//         )
-//     }
-// }
-
-// interface IAppProps {
-
-// }
-
-// interface IAppState {
-//     name: string;
-// }
+interface IAppProps { }

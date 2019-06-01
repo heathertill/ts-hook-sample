@@ -1,5 +1,23 @@
+//
+
+// FOR EXAMPLE:
+// $theme-colors: (
+//     'primary': rgba(126, 171, 206, 0.7),
+//     'secondary': darkgrey,
+//     'success': gainsboro,
+//     'blueCh': rgba(126, 171, 206, 0.7)
+// );
+
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+
+$font-body: 'Open Sans Condensed', sans-serif;
+$font-header: 'Alegreya SC', serif;
+$text-color: darkgrey;
+$main-color: gainsboro;
 
 .covalence-blue {
     color: #0091ea;
 }
+
+

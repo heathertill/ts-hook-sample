@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as React from 'react';
 
 const router = express.Router();
 
