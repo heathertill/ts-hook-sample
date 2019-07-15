@@ -24,6 +24,7 @@ const Details: React.SFC<DetailsProps> = ({ history, match: { params: { id } } }
     const getAlbum = async () => {
         let r = await fetch(`http://student-fun-api.herokuapp.com/api/hiphop/${id}`);
         let album = await r.json();
+        console.log(album);
         setAlbum(album);
     }
 
